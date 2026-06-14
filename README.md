@@ -5,7 +5,7 @@ Zero-dependency TypeScript package with all **249 ISO 3166-1 countries** — alp
 ## Install
 
 ```bash
-npm install country-kit
+npm i country-code-kit
 ```
 
 ## Usage
@@ -56,19 +56,21 @@ const { getName } = require("country-kit");
 
 ## API
 
-| Function | Returns |
-|---|---|
-| `countries` | `readonly Country[]` — all 249 entries |
-| `getCountryByCode(code)` | `Country \| undefined` (case-insensitive) |
-| `getCountryByName(name)` | `Country \| undefined` (case-insensitive) |
-| `getCountryByFlag(flag)` | `Country \| undefined` |
-| `getFlag(code)` / `getName(code)` | `string \| undefined` |
-| `getDialCode(code)` | `string \| null \| undefined` — `null` for territories with no dial code |
-| `getCountriesByDialCode(dialCode)` | `Country[]` — all countries sharing a dial code (e.g. `"+1"`) |
-| `isValidCode(code)` | `boolean` |
-| `searchCountries(query)` | `Country[]` ranked by match quality |
-| `codeToFlag(code)` | `string` (throws on invalid input) |
-| `flagToCode(flag)` | `string \| undefined` |
+
+| Function                           | Returns                                                                |
+| ---------------------------------- | ---------------------------------------------------------------------- |
+| `countries`                        | `readonly Country[]` — all 249 entries                                 |
+| `getCountryByCode(code)`           | `Country | undefined` (case-insensitive)                               |
+| `getCountryByName(name)`           | `Country | undefined` (case-insensitive)                               |
+| `getCountryByFlag(flag)`           | `Country | undefined`                                                  |
+| `getFlag(code)` / `getName(code)`  | `string | undefined`                                                   |
+| `getDialCode(code)`                | `string | null | undefined` — `null` for territories with no dial code |
+| `getCountriesByDialCode(dialCode)` | `Country[]` — all countries sharing a dial code (e.g. `"+1"`)          |
+| `isValidCode(code)`                | `boolean`                                                              |
+| `searchCountries(query)`           | `Country[]` ranked by match quality                                    |
+| `codeToFlag(code)`                 | `string` (throws on invalid input)                                     |
+| `flagToCode(flag)`                 | `string | undefined`                                                   |
+
 
 ```ts
 interface Country {
@@ -78,7 +80,6 @@ interface Country {
   dialCode: string | null; // ITU calling code incl. "+", e.g. "+880". Null for territories with no assigned code.
 }
 ```
-
 
 ## License
 
