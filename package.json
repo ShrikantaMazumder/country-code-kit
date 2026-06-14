@@ -1,0 +1,39 @@
+{
+  "name": "country-code-kit",
+  "version": "1.0.0",
+  "description": "Zero-dependency list of all 249 ISO 3166-1 countries with code, name, and flag emoji. Lookup and search helpers included. Tree-shakeable, works in Node and browsers.",
+  "keywords": [
+    "country",
+    "countries",
+    "iso-3166",
+    "country-code",
+    "flag",
+    "emoji",
+    "country-name",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test": "node --test test/*.test.js",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
