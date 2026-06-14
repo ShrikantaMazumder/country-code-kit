@@ -1,6 +1,6 @@
 {
   "name": "country-code-kit",
-  "version": "v1.0.4",
+  "version": "v1.0.5",
   "description": "Zero-dependency list of all 249 ISO 3166-1 countries with code, name, and flag emoji. Lookup and search helpers included. Tree-shakeable, works in Node and browsers.",
   "keywords": [
     "country",
@@ -23,6 +23,10 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     }
+  },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShrikantaMazumder/country-code-kit.git"
   },
   "files": [
     "dist"
