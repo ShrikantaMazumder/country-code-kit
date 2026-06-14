@@ -1,6 +1,6 @@
 {
   "name": "country-code-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zero-dependency list of all 249 ISO 3166-1 countries with code, name, and flag emoji. Lookup and search helpers included. Tree-shakeable, works in Node and browsers.",
   "keywords": [
     "country",

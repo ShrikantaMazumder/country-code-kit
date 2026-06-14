@@ -8,6 +8,14 @@ const byCode = new Map<string, Country>(countries.map((c) => [c.code, c]));
 const byName = new Map<string, Country>(
   countries.map((c) => [c.name.toLowerCase(), c])
 );
+const byDialCode = new Map<string, Country[]>();
+for (const c of countries) {
+  if (c.dialCode) {
+    const list = byDialCode.get(c.dialCode) ?? [];
+    list.push(c);
+    byDialCode.set(c.dialCode, list);
+  }
+}
 
 /** Get a country by its ISO 3166-1 alpha-2 code (case-insensitive). */
 export function getCountryByCode(code: string): Country | undefined {
@@ -33,6 +41,19 @@ export function getFlag(code: string): string | undefined {
 /** Get just the English name for a code. Returns undefined for unknown codes. */
 export function getName(code: string): string | undefined {
   return getCountryByCode(code)?.name;
+}
+
+/** Get the dial code (e.g. "+880") for an alpha-2 code. Returns null for territories with no dial code, undefined for unknown codes. */
+export function getDialCode(code: string): string | null | undefined {
+  return getCountryByCode(code)?.dialCode;
+}
+
+/**
+ * Get all countries that share a given dial code (e.g. "+1" → US, CA, and many Caribbean territories).
+ * The dialCode argument must include the leading "+".
+ */
+export function getCountriesByDialCode(dialCode: string): Country[] {
+  return byDialCode.get(dialCode.trim()) ?? [];
 }
 
 /** Check whether a string is a valid ISO 3166-1 alpha-2 code. */

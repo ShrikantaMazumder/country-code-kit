@@ -6,4 +6,6 @@ export interface Country {
   name: string;
   /** Flag emoji, e.g. "🇮🇳" */
   flag: string;
+  /** ITU calling code including +, e.g. "+880". Null for territories with no assigned dial code. */
+  dialCode: string | null;
 }
